@@ -1,0 +1,14 @@
+{
+  "name": "NeoBux Total Referral's Average Calculator",
+  "action": { "default_icon": "icon.png" },
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "Shows the referral's total average on neobux's referral's page",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
