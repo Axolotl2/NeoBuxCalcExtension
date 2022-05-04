@@ -49,7 +49,7 @@ function showReferralsSummary() {
 	
 	
 	var refData = getReferralsData();
-	var outputText = "The total average for " + refData.referrals + " referrals Is: " + refData.totalAverage.toFixed(2) + " clicks.\nCurrent profit: " + refData.totalProfit.toFixed(2) + "$ estimated additional profit till end of lease: " + refData.estimatedProfit.toFixed(2) + "$";
+	var outputText = "The total average for " + refData.referrals + " referrals Is: " + refData.totalAverage.toFixed(2) + " clicks.\nCurrent profit: " + refData.totalProfit.toFixed(2) + "$, estimated additional profit till end of lease: " + refData.estimatedProfit.toFixed(2) + "$";
 	refData.dataRow.cells[0].innerText = outputText;
 	
 	paintRow(refData.dataRow, refData.totalAverage);
