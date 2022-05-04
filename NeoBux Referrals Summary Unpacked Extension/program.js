@@ -29,8 +29,9 @@ function showReferralsSummary() {
 			lastRow = row;
 		}
 		var totalAverage = sum / referrals;
+		var referralsCost = referrals * 0.2;
 	
-		return { referrals: referrals, totalAverage: totalAverage, dataRow: lastRow, totalProfit: totalProfit, estimatedProfit: estimatedProfit};
+		return { referrals: referrals, referralsCost: referralsCost, totalAverage: totalAverage, dataRow: lastRow, totalProfit: totalProfit, estimatedProfit: estimatedProfit};
 	}
 	
 	const paintRow = function(lastRow, totalAverage) {
@@ -49,7 +50,9 @@ function showReferralsSummary() {
 	
 	
 	var refData = getReferralsData();
-	var outputText = "The total average for " + refData.referrals + " referrals Is: " + refData.totalAverage.toFixed(2) + " clicks.\nCurrent profit: " + refData.totalProfit.toFixed(2) + "$, estimated additional profit till end of lease: " + refData.estimatedProfit.toFixed(2) + "$";
+	var outputText = "The total average for " + refData.referrals + " referrals Is: " + refData.totalAverage.toFixed(2) + " clicks." + 
+	"\nCurrent profit: " + refData.totalProfit.toFixed(2) + "$, estimated additional profit till end of lease: " + refData.estimatedProfit.toFixed(2) + "$" +
+	"\nThe base cost for " + refData.referrals + " referrals Is: " + refData.referralsCost.toFixed(2) + "$";
 	refData.dataRow.cells[0].innerText = outputText;
 	
 	paintRow(refData.dataRow, refData.totalAverage);
