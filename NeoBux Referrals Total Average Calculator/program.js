@@ -1,18 +1,3 @@
-//function sort(){
-//    window.location = '/c/rl/?vl=0E67B9D2FDAB3C88&sp=1&ss1=7&ss3=2&ss2=2';
-//	//document.location.href='/c/rl/?vl=0E67B9D2FDAB3C88&sp=1&ss1=7&ss3=2&ss2=2'
-//}
-//
-//window.onload = function() {
-//    var hash = window.location.hash;
-//    if (hash.length > 0)
-//    {
-//    var id = hash.replace('#id=','');
-//	showReferralsAverageAndSort();
-//    return document.id.outerHTML;
-//    }  
-//}
-
 function showReferralsSummary() {
 	
 	const getReferralsData = function() {
@@ -64,20 +49,4 @@ function showReferralsSummary() {
 
 }
 
-//chrome.action.onClicked.addListener((tab) => {
-//  if(!tab.url.includes("chrome://")) {
-//    chrome.scripting.executeScript({
-//      target: { tabId: tab.id },
-//      function: showReferralsSummary
-//    });
-//  }
-//});
-
-chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,tab){
-  if (tab.url.indexOf("https://www.neobux.com/c/rl/") > -1 && 
-      changeInfo.url === undefined){
-	//showReferralsSummary();
-    chrome.tabs.executeScript(tabId, {file: "program.js"} );
-  }
-});
-
+showReferralsSummary();
