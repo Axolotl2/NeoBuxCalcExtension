@@ -13,10 +13,17 @@ function showReferralsSummary() {
 				var averageClicks = parseFloat(row.cells[7].innerText);
 				var daysRegex = /[^\s]*(?=\sdays)/g;
 				var days = parseFloat(row.cells[4].innerText.match(daysRegex)[0]);
-				sum += averageClicks;
-				console.log("i: " + i + "clicks: " + clicks + " days: " + days);
-				totalProfit += 0.005 * clicks;
-				estimatedProfit += days * 0.005 * averageClicks;
+				if (!Number.isNaN(averageClicks)) {
+					sum += averageClicks;
+					
+					if (!Number.isNaN(days)) {
+						estimatedProfit += days * 0.005 * averageClicks;
+					}
+				}
+				
+				if (!Number.isNaN(clicks)) {
+					totalProfit += 0.005 * clicks;
+				}
 				referrals++;
 			} 
 			lastRow = row;
@@ -42,7 +49,7 @@ function showReferralsSummary() {
 	
 	
 	var refData = getReferralsData();
-	var outputText = "The total average for " + refData.referrals + " referrals Is: " + refData.totalAverage.toFixed(2) + "clicks.\nCurrent profit: " + refData.totalProfit.toFixed(2) + "$ estimated additional profit till end of lease: " + refData.estimatedProfit.toFixed(2) + "$";
+	var outputText = "The total average for " + refData.referrals + " referrals Is: " + refData.totalAverage.toFixed(2) + " clicks.\nCurrent profit: " + refData.totalProfit.toFixed(2) + "$ estimated additional profit till end of lease: " + refData.estimatedProfit.toFixed(2) + "$";
 	refData.dataRow.cells[0].innerText = outputText;
 	
 	paintRow(refData.dataRow, refData.totalAverage);
