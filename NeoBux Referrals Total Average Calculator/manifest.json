@@ -21,8 +21,8 @@
   "version": "1.0",
   "description": "Shows the referral's total average on neobux's referral's page",
   "permissions": [
-	"https://www.neobux.com/c/rl/*",
-	"tabs"
+    "https://www.neobux.com/c/rl/*",
+	"tabs"	
   ],
   "background": {
     "scripts": ["background.js"]
