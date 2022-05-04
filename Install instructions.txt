@@ -1,0 +1,2 @@
+On chrome's extension's tab activate developer mode
+and load the unpacked extension folder "NeoBux Referrals Summary Unpacked Extension"
